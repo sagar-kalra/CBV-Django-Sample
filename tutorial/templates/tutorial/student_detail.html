@@ -1,0 +1,18 @@
+{% extends "tutorial/base.html" %}
+
+{% block body_block %}
+
+<div class = "jumbotron">
+    <h1>Welcome to the student detail page</h1>
+    <h2>Student details:</h2>
+    <p>Name: {{student.name}}</p>
+    <p>Age: {{student.age}}</p>
+    <p>School: {{student.school}} </p>
+ 
+</div>
+<div class = "container">
+    <p><a class = "btn btn-warning" href = "{% url 'tutorial:student_update' student.pk %}"> Update</a></p>
+    <p><a class = "btn btn-danger" href = "{% url 'tutorial:student_delete' student.pk %}">Delete</a></p>
+</div>
+
+{% endblock body_block %}

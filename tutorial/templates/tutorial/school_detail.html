@@ -1,0 +1,22 @@
+{% extends "tutorial/base.html" %}
+
+{% block body_block %}
+
+<div class = "jumbotron">
+    <h1>Welcome to the school detail page</h1>
+    <h2>School details:</h2>
+    <p>Name: {{school_detail.name}}</p>
+    <p>Principal: {{school_detail.principal}}</p>
+    <p>Location: {{school_detail.location}} </p>
+    <h3> Students: </h3>
+    {% for student in school_detail.students.all %}
+        <p><a href="{% url 'tutorial:student_detail' student.pk %}" >{{student.name}}</a></p>
+    {% endfor %}
+</div>
+<div class = "container">
+    <p><a class = "btn btn-warning" href = "{% url 'tutorial:update' school_detail.pk %}"> Update</a></p>
+    <p><a class = "btn btn-danger" href = "{% url 'tutorial:delete' school_detail.pk %}">Delete</a></p>
+    
+</div>
+
+{% endblock body_block %}
